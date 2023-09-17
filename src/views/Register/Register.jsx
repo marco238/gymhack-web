@@ -25,13 +25,24 @@ const Register = () => {
     handleSubmit,
     setSubmitting,
     setFieldError,
+    setFieldValue,
   } = useFormik({
     initialValues: initialValues,
     validateOnBlur: true,
     validateOnChange: false,
     validationSchema: registerSchema,
     onSubmit: (values) => {
-      register(values)
+      const formData = new FormData();
+      formData.append('name', values.name);
+      formData.append('email', values.email);
+      formData.append('password', values.password);
+
+      if (values.profilePicture) {
+        console.log('values.profilePicture: ', values.profilePicture);
+        formData.append('profilePicture', values.profilePicture);
+      }
+
+      register(formData)
         .then(() => {
           navigate("/login");
         })
@@ -81,6 +92,15 @@ const Register = () => {
           onChange={handleChange}
           onBlur={handleBlur}
           placeholder="Enter your password"
+        />
+        <InputGroup
+          label="Profile picture"
+          name="profilePicture"
+          type="file"
+          onChange={(event) => {
+            setFieldValue("profilePicture", event.currentTarget.files[0]);
+          }}
+          placeholder="Upload your profile picture"
         />
 
         <button type="submit" className={`btn btn-${isSubmitting ? 'secondary' : 'primary'}`}>
