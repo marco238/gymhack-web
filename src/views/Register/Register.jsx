@@ -57,7 +57,7 @@ const Register = () => {
   });
 
   return user ? (
-    <Navigate to="/profile" />
+    <Navigate to="/" />
   ) : (
     <div className="Register">
       <h1>Register</h1>

@@ -33,7 +33,7 @@ const Login = () => {
       loginRequest(values)
         .then((res) => {
           console.log(res);
-          login(res.accessToken, () => navigate('/profile'));
+          login(res.accessToken, () => navigate('/'));
         })
         .catch((err) => {
           console.log(err);
@@ -46,7 +46,7 @@ const Login = () => {
   });
 
   return user ? (
-    <Navigate to="/profile" />
+    <Navigate to="/" />
   ) : (
     <div className="Login">
       <h1>Login</h1>

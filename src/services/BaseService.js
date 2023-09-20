@@ -12,7 +12,7 @@ import { getAccessToken, logout } from '../stores/AccessTokenStore';
 
 const createHttp = (useAccessToken = false) => {
   const http = axios.create({
-    baseURL: 'http://localhost:3001',
+    baseURL: 'http://localhost:3001/api',
   })
 
   if (useAccessToken) {
