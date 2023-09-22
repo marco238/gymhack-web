@@ -7,6 +7,8 @@ import Register from './views/Register/Register'
 import Profile from './views/Profile/Profile';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import { useAuthContext } from './contexts/AuthContext';
+import Store from './views/Store/Store'
+import ProductDetails from './views/ProductDetails/ProductDetails'
 
 function App() {
   const { isAuthenticationFetched } = useAuthContext();
@@ -27,6 +29,8 @@ function App() {
             <Route path="/" element={<ProtectedRoute/>} >
               <Route index path="/" element={<Home />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/store" element={<Store />} />
+              <Route path="/store/:id" element={<ProductDetails />} />
             </Route>
           </Routes>
         )}

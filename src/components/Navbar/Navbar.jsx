@@ -29,6 +29,9 @@ const Navbar = () => {
                   <NavLink className="nav-link" to="/profile">Profile</NavLink>
                 </li>
                 <li className="nav-item">
+                  <NavLink className="nav-link" to="/store">Store</NavLink>
+                </li>
+                <li className="nav-item">
                   <button className="nav-link" onClick={logout}>Logout</button>
                 </li>
               </>
